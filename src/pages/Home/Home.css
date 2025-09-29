@@ -4,28 +4,29 @@
 .banner-img{
     width: 100%;
     mask-image: linear-gradient(to right, transparent, black 75%);
-    -weblit-mask-image: linear-gradient(to right, transparent, black 75%);
+    -webKit-mask-image: linear-gradient(to right, transparent, black 75%);
 }
 .hero-caption{
     position: absolute;
     width: 100%;
-    padding-left: 2%;
+    padding-left: 4%;
     bottom: 0;
 }
 .caption-img{
-    width: 50%;
-    max-width: 240px;
-    margin-bottom: 3%;
+    width: 90%;
+    max-width: 300px;
+    margin-bottom: 15px;
 }
 .hero-caption p{
-    max-width: 700px;
-    font-size: 14px;
-    margin-bottom: 10px;
+    max-width: 300px;
+    font-size: 10px;
+    /* margin-bottom: 6px; */
 }
 .hero-btns{
     display: flex;
     gap: 10px;
     margin-bottom: 50px;
+    margin-top: 10PX;
 }
 .hero-btns .btn img{
     width: 25px;
@@ -43,59 +44,19 @@
     border-radius: 4px;
     cursor: pointer;
 }
-.hero-btns .btn.dark-btn{
+.btn{
+    color: black;
+}
+.hero-btns .btn.btn.dark-btn{
     color: #fff;
-    background: #6d6d6eb3;
+    background: #535353ee;
 }
 .hero-btns .btn:hover{
     background: #ffffffbf;
 }
-.hero-btns .btn.dark-btn:hover{
-    background: #6d6d6e66;
+.hero-btns .btn.btn.dark-btn:hover{
+    background: #6d6d6e7d;
 }
 .more-cards{
-    padding-left: 6%;
+    padding-left: 4%;
 }
-.more-cards{
-    padding-left: 2%;
-}
-/* @media (max-width: 1024px) {
-    .hero-caption .title-cards{
-        display: none;
-    }
-    .hero-btns{
-        margin-bottom: 30px;
-    }
-}
-@media (max-width: 800px) {
-    .hero-caption{
-        padding-left: 4%;
-    }
-    .caption-img{
-        margin-bottom: 10px;
-        width: 40%;
-    }
-    .hero-caption p{
-        font-size: 12px;
-        margin-bottom: 10px;
-    }
-    .hero-btns  .btn img{
-        width: 20px;
-    }
-    .more-cards{
-        padding-left: 4%;
-    }
-}
-@media (max-width: 500px) {
-    .caption-img{
-        display: none;
-    }
-    .hero-btns .btn img{
-        width: 15px;
-    }
-    .btn{
-        padding: 4px 10px;
-        gap: 5px;
-        font-size: 10px;
-    }
-} */

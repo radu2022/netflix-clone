@@ -1,0 +1,36 @@
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.search-input {
+  width: 0;
+  padding: 0;
+  opacity: 0;
+  border: none;
+  border-bottom: 2px solid #e50914;
+  background: transparent;
+  color: white;
+  font-size: 16px;
+  transition: width 0.3s ease, opacity 0.3s ease;
+}
+
+.search-container.active .search-input {
+  width: 200px;
+  padding: 5px 10px;
+  opacity: 1;
+}
+
+.search-icon {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.search-icon i {
+  pointer-events: none;
+}

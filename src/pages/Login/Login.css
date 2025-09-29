@@ -5,6 +5,8 @@
 }
 .login-logo{
     width: 150px;
+    padding-top: 20px;
+    padding-left: 20px;
 }
 .login-form{
     width: 100%;

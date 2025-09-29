@@ -16,10 +16,20 @@ const TitleCards = ({title, catagory}) => {
   }
 };
 
+
+
   const handleWheel = (event)=>{
     event.preventDefault();
     cardsRef.current.scrollLeft += event.deltaY;
   }
+  useEffect(() => {
+    const currentRef = cardsRef.current;
+    currentRef.addEventListener("wheel", handleWheel);
+
+    return () => {
+      currentRef.removeEventListener("wheel", handleWheel);
+    };
+  }, []);
 
   useEffect(()=>{
 
@@ -27,8 +37,6 @@ const TitleCards = ({title, catagory}) => {
   .then(res => res.json())
   .then(res => setApiData(res.results))
   .catch(err => console.error(err));
-
-    cardsRef.current.addEventListener('wheel', handleWheel);
   },[])
 
   return (
@@ -36,10 +44,24 @@ const TitleCards = ({title, catagory}) => {
       <h2>{title?title:"Popular on Netflix"}</h2>
       <div className="card-list" ref={cardsRef}>
         {apiData.map((card, index)=>{
-          return <Link to={`/Player/${card.id}`} className="card" key={index}>
-            <img src={`https://image.tmdb.org/t/p/w500/`+card.backdrop_path} alt=""/>
-            <p>{card.original_title}</p>
-          </Link>
+          return (
+            <Link
+              to={`/Player/${card.id}`}
+              className="card"
+              key={index}
+              aria-label={`Watch ${card.original_title || card.title}`}
+            >
+              <img
+                src={
+                  card.backdrop_path
+                    ? `https://image.tmdb.org/t/p/w500/${card.backdrop_path}`
+                    : "/fallback.jpg"
+                }
+                alt={`${card.original_title || card.title} poster`}
+              />
+              <p>{card.original_title || card.title}</p>
+            </Link>
+          );
         })}
       </div>
     </div>

@@ -7,14 +7,14 @@ import facebook_icon from '../../assets/facebook_icon.png'
 
 const Footer = () => {
   return (
-    <div className='footer'>
+    <div className="footer">
       <div className="footer-icons">
-        <img src={facebook_icon} alt=""/>         
-        <img src={instagram_icon} alt=""/>
-        <img src={twitter_icon} alt=""/>
-        <img src={youtube_icon} alt=""/>        
+        <img src={facebook_icon} alt="" />
+        <img src={instagram_icon} alt="" />
+        <img src={twitter_icon} alt="" />
+        <img src={youtube_icon} alt="" />
       </div>
-      <ul>
+      <ul className="font-sans font-light">
         <li>Audio Description</li>
         <li>Help Center</li>
         <li>Gift Cards</li>
@@ -29,9 +29,9 @@ const Footer = () => {
         <li>Terms of Use</li>
         <li>Contact Us</li>
       </ul>
-      <p className='copyright-text'>@ 1997-2003 Netflix, Inc.</p>
+      <p className="copyright-text">@ 1997-2003 Netflix, Inc.</p>
     </div>
-  )
+  );
 }
 
 export default Footer

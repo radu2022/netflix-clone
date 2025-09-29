@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import './Player.css';
-import back_arrow_icon from '../../assets/back_arrow_icon.png';
-import { useNavigate, useParams } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import "./Player.css";
+import back_arrow_icon from "../../assets/back_arrow_icon.png";
+import { useNavigate, useParams } from "react-router-dom";
 
 const Player = () => {
   const { id } = useParams();
@@ -11,11 +11,12 @@ const Player = () => {
   const [error, setError] = useState(null);
 
   const options = {
-    method: 'GET',
+    method: "GET",
     headers: {
-      accept: 'application/json',
-      Authorization: 'Bearer YOUR_API_KEY_HERE' // Replace with secure method
-    }
+      accept: "application/json",
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmNGRmNzk0NjIwMGVmYTZkYWUyMjNlMzJmODJmMTViMCIsIm5iZiI6MTc1Nzk4MzQ5NC43NzQwMDAyLCJzdWIiOiI2OGM4YjMwNmJiYjkxNjRjMTMwYzExMDAiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.v5ti217bQcLZGHrD_XTbH6X417W0IoPrse7kbUk5WDs", // Replace with secure method
+    },
   };
 
   useEffect(() => {
@@ -26,15 +27,17 @@ const Player = () => {
           options
         );
         const data = await res.json();
-        const trailer = data.results?.find(video => video.site === 'YouTube' && video.type === 'Trailer');
+        const trailer = data.results?.find(
+          (video) => video.site === "YouTube" && video.type === "Trailer"
+        );
         if (trailer) {
           setApiData(trailer);
         } else {
-          setError('Trailer not available');
+          setError("Trailer not available");
         }
       } catch (err) {
-        console.error('Failed to fetch video:', err);
-        setError('Something went wrong');
+        console.error("Failed to fetch video:", err);
+        setError("Something went wrong");
       }
     };
 
@@ -47,7 +50,7 @@ const Player = () => {
         src={back_arrow_icon}
         alt="Back"
         className="back-arrow"
-        onClick={() => navigate(-2)}
+        onClick={() => navigate(-1)}
       />
       {error ? (
         <div className="error-message">{error}</div>

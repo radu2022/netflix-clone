@@ -6,7 +6,8 @@
     padding: 20px 6%;
     display: flex;
     justify-content: space-between;
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 1vw, 1rem);
+    font-weight: 500;
     color: #e5e5e5;
     background-image: linear-gradient(180deg, rgba(0,0,0,0.7) 10%, transparent);
     z-index: 1000;
@@ -27,11 +28,23 @@
 }
 .navbar-left ul li{
     cursor: pointer;
+    text-decoration: none;
+}
+.navbar-left ul li:hover{
+    text-decoration: underline 2px red;
+    text-underline-offset: 6px;
+    
+}
+.navbar-left ul li:focus,
+.navbar-right .icons:focus,
+.navbar-profile:focus {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
 }
 .navbar-right{
     display: flex;
     gap: 20px;
-    align-items: center;
+    align-items: right;
 }
 .navbar-right .icons{
     width: 20px;
@@ -50,43 +63,184 @@
 }
 .navbar .dropdown{
     position: absolute;
-    top: 100%;
+    top: 200%;
+
     right: 0;
     width: max-content;
-    background: #191919;
-    padding: 18px 22px;
+    background: rgb(30, 29, 29);
+    justify-items: center;
+    padding: 8px 12px;
     border-radius: 2px;
     text-decoration: underline;
+    font-weight: 600;
     z-index: 1;
-    display: none;
+    /* display: none; */
 }
 .navbar .dropdown p{
     font-size: 13px;
     cursor: pointer;
+}
+.navbar .dropdown {
+  opacity: 0;
+  /* visibility: hidden; */
+  transition: opacity 0.3s ease;
+}
+
+.navbar-profile:hover .dropdown {
+  opacity: 5;
+  cursor: pointer;
+  visibility: visible;
 }
 .navbar-profile:hover .dropdown{
     display: block;
 }
 .nav-dark{
     background: #141414;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
-/* @media (max-width: 800px) {
+@media (max-width: 800px) {
     .navbar {
         padding: 20px 4%;
     }
     .navbar-left ul{
         display: none;
     }
+    .navbar-left img{
+        position: absolute;
+        height: 20px;
+    }
     .navbar img{
-        height: 25px;
+        height: 20px;
     }
 }
 @media (max-width: 500px) {
+    .navbar{
+        height: 50px;
+    }
+    .navbar p{
+        display: none;
+    }
+    .navbar-right img{
+        display: none;
+    }
     .navbar img{
-        height: 25px;
+        position: absolute;
+        left: 15px;
+        bottom: 12px;
     }
     .navbar-right{
         gap: 10px;
     }
-} */
+}
+
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+}
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  gap: 4px;
+  transition: max-height 0.3s ease;
+}
+.nav-links ul li:hover{
+    text-decoration: underline 2px red;
+    text-underline-offset: 6px;
+}
+
+@media (max-width: 500px) {
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    right: 15px;
+    top: 8px;
+  }
+  .navbar{
+    height: 50px;
+  }
+}
+@media (max-width: 700px) {
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    left: 230px;
+    top: 10px;
+  }
+  .navbar{
+    height: 50px;
+  }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #141411;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 60%;
+    font-weight: 300;
+    font-size: clamp(0.8rem, 1vw, 0.9rem);
+    padding: 14px;
+    z-index: 999;
+  }
+}
+@media (max-width: 800px) {
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    
+  }
+
+  .nav-links {
+    flex-direction: column;
+    list-style: none;
+    gap: 4px;
+    overflow: hidden;
+  }
+
+  .nav-links.open {
+    display: flex;
+    max-height: 400px; /* Adjust as needed */
+}
+.nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #141411;
+    position: absolute;
+    top: 55px;
+    right: 0;
+    width: 50%;
+    font-weight: 300;
+    font-size: clamp(0.8rem, 1vw, 0.9rem);
+    padding: 14px;
+    z-index: 999;
+  }
+
+  .nav-links.open {
+    display: flex;
+    gap: 10px;
+  }
+  .nav-links.open ul li:hover{
+    cursor: pointer;
+    text-decoration: underline 2px red;
+    text-underline-offset: 6px;
+  }
+  .menu-toggle {
+    display: block;
+    font-size: 20px;
+    cursor: pointer;
+    color: #fff;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
